@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --text-dark: #171717;
+    --text-light: #525252;
+    --extra-light: #a3a3a3;
+    --white: #ffffff;
+    --max-width: auto;
+    --header-font: "Merriweather", serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+}
+
+.section__header {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: var(--header-font);
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.section__description {
+    color: var(--text-light);
+    line-height: 1.75rem;
+    text-align: center;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--white);
+    background-color: var(--text-dark);
+    border-radius: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--text-light);
+}
+
+img {
+    display: flex;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+.header {
+    min-height: 600px;
+    background-image:
+        url("../img/header.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+nav {
+    position: fixed;
+    /* Position nav on top of header */
+    isolation: isolate;
+    top: 0;
+    /* Adjust top position */
+    left: 0;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: auto;
+    z-index: 9;
+}
+
+.nav__header {
+    padding: 1rem;
+    /* Padding for spacing */
+    display: flex;
+    /* Flex container to align items horizontally */
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background-color: var(--text-dark);
+}
+
+.nav__logo img {
+    max-width: 80px;
+}
+
+.nav__menu__btn {
+    font-size: 1.5rem;
+    color: var(--black);
+    cursor: pointer;
+}
+
+.nav__links {
+    list-style: none;
+    position: absolute;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--text-dark);
+    transform: translateY(-100%);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.nav__links.open {
+    transform: translateY(0);
+}
+
+.nav__links .nav__logo {
+    display: none;
+}
+
+.nav__links a {
+    padding-bottom: 5px;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--black);
+    border-bottom: 2px solid transparent;
+}
+
+.nav__links a:hover {
+    border-color: var(--black);
+}
+
+@media (width > 768px) {
+    .header {
+        min-height: 650px;
+    }
+
+    nav {
+        padding: 2rem 1rem;
+        position: static;
+        max-width: 900px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav__header {
+        display: none;
+    }
+
+    .nav__links {
+        padding: 0;
+        width: 100%;
+        position: static;
+        transform: none;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: transparent;
+    }
+
+    .nav__links .nav__logo {
+        display: block;
+    }
+
+    .nav__links .nav__logo img {
+        max-width: 150px;
+    }
+}
+
+@media (width > 1024px) {
+    .header {
+        min-height: 700px;
+    }
+}
+
+h2.section__header {
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #222;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 3px solid #f05454;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* Existing Gallery Styles */
+.gallery {
+    padding: 2rem;
+    background-color: #fffafa;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #222;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+
+
+.gallery__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.gallery__item {
+    width: calc(20% - 1rem);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    /* Ensures zoom effect doesn't spill outside */
+    position: relative;
+    /* Needed for absolute positioning of overlay */
+}
+
+.gallery__item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+    /* Smooth zoom effect */
+}
+
+.gallery__item:hover img {
+    transform: scale(1.1);
+    /* Zoom effect on hover */
+}
+
+.gallery__details {
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    /* Position details on top of image */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    /* Hide details initially */
+    transition: opacity 0.5s ease;
+    /* Smooth transition for details */
+}
+
+.gallery__item:hover .gallery__details {
+    opacity: 1;
+    /* Show details on hover */
+}
+
+h2.section__header {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #222;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 3px solid #f05454;
+    padding-bottom: 10px;
+    display: inline-block;
+    width: fit-content;
+    /* Shrinks the width to fit content */
+    margin-left: auto;
+    /* Aligns the block centrally */
+    margin-right: auto;
+    /* Aligns the block centrally */
+}
+
+.contact {
+    padding: 2rem;
+    background-color: #afeeee;
+    margin-bottom: 40px;
+    text-align: center;
+    background-size: cover;
+    /* Ensures the image covers the whole section */
+    background-position: center center;
+    /* Centers the image */
+    background-repeat: no-repeat;
+    /* Prevents repeating the image */
+    color: var(--white);
+    /* Ensures text is visible against the background */
+    position: relative;
+    /* Needed for positioning of form */
+
+}
+
+.contact form {
+    max-width: 600px;
+    margin: auto;
+    display: grid;
+    gap: 1rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Semi-transparent background for form */
+    padding: 2rem;
+    border-radius: 8px;
+    /* Rounded corners for form */
+    text-align: left;
+}
+
+.contact label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--text-light);
+    border-radius: 4px;
+}
+
+.contact input[type="submit"] {
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.contact input[type="submit"]:hover {
+    background-color: #32c4c0;
+}
+
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+    border-top: 1px solid var(--text-light);
+}
+
+.footer__col {
+    flex: 1;
+    margin: 0 1rem;
+}
+
+.footer__col img {
+    max-width: 120px;
+    margin-bottom: 1rem;
+}
+
+.footer__socials a {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    text-decoration: none;
+}
+
+.footer__socials a:hover {
+    text-decoration: underline;
+}
+
+.footer__links {
+    list-style: none;
+}
+
+.footer__links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer__links a {
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.footer__links a:hover {
+    text-decoration: underline;
+}
+
+.footer__bar {
+    text-align: center;
+    padding: 1rem;
+    background-color: #5ce1ec;
+    color: var(--black);
+}

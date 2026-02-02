@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="Assets/css/register.css">
+    <script>
+        function goToHome() {
+            window.location.href = 'index.php';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="register-box">
+            <!-- Close button triggers the goToHome function -->
+            <div class="close-button" onclick="goToHome()">&times;</div>
+            <h2>Register</h2>
+            <form action="registerfunction.php" method="POST">
+                <div class="textbox">
+                    <input type="text" placeholder="Username" name="username" required>
+                </div>
+                <div class="textbox">
+                    <input type="email" placeholder="Email" name="email" required>
+                </div>
+                <div class="textbox">
+                    <input type="password" placeholder="Password" name="password" required>
+                </div>
+                <div class="textbox">
+                    <input type="tel" placeholder="Phone Number" name="phone" required>
+                </div>
+                <input type="submit" value="Register" class="btn">
+                <p>Already have an account ? <a href="Login.html">Login</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

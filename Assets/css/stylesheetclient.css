@@ -1,0 +1,465 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --text-dark: #171717;
+    --text-light: #525252;
+    --extra-light: #a3a3a3;
+    --white: #ffffff;
+    --max-width: auto;
+    --header-font: "Merriweather", serif;
+}
+
+/* Pricing List Section Styles */
+.pricing-list {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.pricing-list h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Pricing Container Styles */
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Individual Pricing Box Styles */
+.pricing-box {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-box h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.pricing-box .price {
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+.pricing-box .details {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.pricing-box .details li {
+    margin: 5px 0;
+}
+
+.pricing-box .delivery {
+    font-size: 1em;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Center the button container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 40px 0;
+}
+
+/* General button styling */
+.button {
+    background-color: #007bff; /* Primary color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect */
+.button:hover {
+    background-color: #0056b3; /* Darker shade of primary color */
+    transform: scale(1.05);
+}
+
+/* Focus effect for accessibility */
+.button:focus {
+    outline: 3px solid #0056b3; /* Same color as hover */
+    outline-offset: 2px;
+}
+
+
+.section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+}
+
+.section__header {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: var(--header-font);
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.section__description {
+    color: var(--text-light);
+    line-height: 1.75rem;
+    text-align: center;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--white);
+    background-color: var(--text-dark);
+    border-radius: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--text-light);
+}
+
+img {
+    display: flex;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+.header {
+    min-height: 900px;
+    background-image: radial-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.9)),
+        url("../img/header2.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+nav {
+    position: fixed;
+    /* Position nav on top of header */
+    isolation: isolate;
+    top: 0;
+    /* Adjust top position */
+    left: 0;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: auto;
+    z-index: 9;
+}
+
+.nav__header {
+    padding: 1rem;
+    /* Padding for spacing */
+    display: flex;
+    /* Flex container to align items horizontally */
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background-color: var(--text-dark); 
+}
+
+.nav__logo img {
+    max-width: 80px;
+}
+
+.nav__menu__btn {
+    font-size: 1.5rem;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.nav__links {
+    list-style: none;
+    position: absolute;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--text-dark);
+    transform: translateY(-100%);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.nav__links.open {
+    transform: translateY(0);
+}
+
+.nav__links .nav__logo {
+    display: none;
+}
+
+.nav__links a {
+    padding-bottom: 5px;
+    font-weight: 500;
+    color: var(--white);
+    border-bottom: 2px solid transparent;
+}
+
+.nav__links a:hover {
+    border-color: var(--white);
+}
+
+@media (width > 768px) {
+    .header {
+        min-height: 650px;
+    }
+
+    nav {
+        padding: 2rem 1rem;
+        position: static;
+        max-width: 900px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav__header {
+        display: none;
+    }
+
+    .nav__links {
+        padding: 0;
+        width: 100%;
+        position: static;
+        transform: none;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: transparent;
+    }
+
+    .nav__links .nav__logo {
+        display: block;
+    }
+
+    .nav__links .nav__logo img {
+        max-width: 150px;
+    }
+}
+
+@media (width > 1024px) {
+    .header {
+        min-height: 700px;
+    }
+}
+
+
+.gallery {
+    padding: 2rem;
+    background-color: #dbd9d3;
+}
+
+
+.gallery__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.gallery__item {
+    width: calc(20% - 1rem);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    /* Ensures zoom effect doesn't spill outside */
+    position: relative;
+    /* Needed for absolute positioning of overlay */
+}
+
+.gallery__item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+    /* Smooth zoom effect */
+}
+
+.gallery__item:hover img {
+    transform: scale(1.1);
+    /* Zoom effect on hover */
+}
+
+.gallery__details {
+    padding: 1rem;
+    background-color: var(--white);
+    position: absolute;
+    /* Position details on top of image */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    /* Hide details initially */
+    transition: opacity 0.5s ease;
+    /* Smooth transition for details */
+}
+
+.gallery__item:hover .gallery__details {
+    opacity: 1;
+    /* Show details on hover */
+}
+
+
+.contact {
+    padding: 2rem;
+    background-image: url('../img/header2.jpg');
+    /* Background image */
+    background-size: cover;
+    /* Ensures the image covers the whole section */
+    background-position: center center;
+    /* Centers the image */
+    background-repeat: no-repeat;
+    /* Prevents repeating the image */
+    color: var(--white);
+    /* Ensures text is visible against the background */
+    position: relative;
+    /* Needed for positioning of form */
+    background-color: white;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: auto;
+    display: grid;
+    gap: 1rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Semi-transparent background for form */
+    padding: 2rem;
+    border-radius: 8px;
+    /* Rounded corners for form */
+}
+
+.contact label {
+    font-weight: 500;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--text-light);
+    border-radius: 4px;
+}
+
+.contact input[type="submit"] {
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.contact input[type="submit"]:hover {
+    background-color: #32c4c0;
+}
+
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+    border-top: 1px solid var(--text-light);
+}
+
+.footer__col {
+    flex: 1;
+    margin: 0 1rem;
+}
+
+.footer__col img {
+    max-width: 120px;
+    margin-bottom: 1rem;
+}
+
+.footer__socials a {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    text-decoration: none;
+}
+
+.footer__socials a:hover {
+    text-decoration: underline;
+}
+
+.footer__links {
+    list-style: none;
+}
+
+.footer__links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer__links a {
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.footer__links a:hover {
+    text-decoration: underline;
+}
+
+.footer__bar {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--text-dark);
+    color: var(--white);
+}
+
+/* Add this to your stylesheet.css */
+.nav__item.username {
+    color: white;
+    font-weight: bold;
+}

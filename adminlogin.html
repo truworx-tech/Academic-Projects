@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Login Container */
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 340px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            font-size: 40px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #222;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 3px solid #f05454;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .login-container input {
+            width: 90%;
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .login-container button {
+            padding: 12px;
+            width: 100%;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .login-container button:hover {
+            background-color: #357abd;
+        }
+
+        /* Dashboard Container */
+        .dashboard-container {
+            display: none;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        .dashboard-container h2 {
+            font-size: 35px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #222;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 3px solid #f05454;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .dashboard-container button {
+            display: block;
+            padding: 12px;
+            width: 100%;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 15px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .dashboard-container button:hover {
+            background-color: #357abd;
+        }
+
+        .description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Log Out Button */
+        #logoutBtn {
+            background-color: #d9534f;
+        }
+
+        #logoutBtn:hover {
+            background-color: #c9302c;
+        }
+
+        /* Media Query for Smaller Screens */
+        @media (max-width: 600px) {
+
+            .login-container,
+            .dashboard-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container" id="login-container">
+        <h2>Admin Login</h2>
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="password" id="password" placeholder="Enter Password">
+        <button id="loginBtn">Login</button>
+    </div>
+
+    <div class="dashboard-container" id="dashboard-container">
+        <h2>Admin Dashboard</h2>
+        <button id="webAdminBtn">Web Admin Dashboard</button>
+        <p class="description">Manage gallery images, home page gallery preview, and read client messages.</p>
+        <button id="customerAdminBtn">Customer Admin Dashboard</button>
+        <p class="description">Access customer administration features and tools.</p>
+        <button id="logoutBtn">Log Out</button>
+    </div>
+
+    <script>
+        document.getElementById('loginBtn').addEventListener('click', function () {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === '5678') {
+                document.getElementById('login-container').style.display = 'none';
+                document.getElementById('dashboard-container').style.display = 'block';
+            } else {
+                alert('Incorrect Username or Password');
+            }
+        });
+
+        document.getElementById('webAdminBtn').addEventListener('click', function () {
+            window.location.href = 'admin/admin.php';
+        });
+
+        document.getElementById('customerAdminBtn').addEventListener('click', function () {
+            window.location.href = 'customeradmin.php';
+        });
+
+        document.getElementById('logoutBtn').addEventListener('click', function () {
+            document.getElementById('login-container').style.display = 'block';
+            document.getElementById('dashboard-container').style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        });
+    </script>
+
+</body>
+
+</html>
